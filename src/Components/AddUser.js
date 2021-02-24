@@ -1,12 +1,8 @@
 import React, {Component} from 'react'
 
-class AddUser extends Component {
+function AddUser(props) {
 
-    constructor() {
-        super()
-        this.handleSubmit = this.handleSubmit.bind(this)
-    }
-    handleSubmit(event) {
+   const handleSubmit=(event)=> {
         event.preventDefault();
         const userName = event.target.elements.userName.value
         const firstName = event.target.elements.firstName.value
@@ -20,7 +16,7 @@ class AddUser extends Component {
            
         }
         if (userName.length>5 && firstName && Password.length>5 ){
-            this.props.onAddUser(post)
+            props.onAddUser(post)
         }
         else 
         {
@@ -29,12 +25,11 @@ class AddUser extends Component {
 
     }
 
-    render() {
         return (
     <div>
         <h1> Enter User Details </h1>
         <div className="form">
-          <form onSubmit={this.handleSubmit}> 
+          <form onSubmit={handleSubmit}> 
                <input type ="text" placeholder="userName" name="userName"/>
                <input type ="text" placeholder="firstName" name="firstName"/>
                <input type ="text" placeholder="lastName" name="lastName"/>
@@ -45,8 +40,5 @@ class AddUser extends Component {
     </div>
     )
     }
-}
 
-
-
-export default AddUser;
+    export default AddUser;

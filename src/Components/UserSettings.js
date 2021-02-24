@@ -1,16 +1,13 @@
 import React, {Component} from 'react'
 
-class AddUser extends Component {
+function AddUser(props)  {
 
-    constructor() {
-        super()
-        this.handleSubmit = this.handleSubmit.bind(this)
-    }
-    handleSubmit(event) {
+
+    const handleSubmit=(event)=> {
         event.preventDefault();
         const Password = event.target.elements.Password.value
         if (Password.length>5 ){
-            this.props.onUpdatePassword(Password)
+            props.onUpdatePassword(Password)
         }
         else 
         {
@@ -19,12 +16,12 @@ class AddUser extends Component {
 
     }
 
-    render() {
+
         return (
     <div>
         <h1> Enter New Password </h1>
         <div className="form">
-          <form onSubmit={this.handleSubmit}> 
+          <form onSubmit={handleSubmit}> 
                <input type ="text" placeholder="Password" name="Password"/>
                <button> Change Password </button>
           </form>
@@ -32,7 +29,7 @@ class AddUser extends Component {
     </div>
     )
     }
-}
+
 
 
 
